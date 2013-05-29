@@ -30,4 +30,6 @@ class Edge(models.Model):
 			return u'%s: %s->%s' % (self.name, self.node_src, self.node_dest)
 		else:
 			return u'%s->%s' % (self.node_src, self.node_dest)
+	class Meta:
+		unique_together = ((node_src, node_dest,),)
 		
