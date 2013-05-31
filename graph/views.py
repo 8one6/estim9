@@ -40,6 +40,7 @@ def gvtest2(request, graph_id=1):
 		g_n = pydot.Node(
 			n.pk, 
 			id = unicode(n),
+			tooltip = unicode(n),
 			label=unicode(n), 
 			URL='http://www.nytimes.com/%s' % n.pk)
 		graph.add_node(g_n)
@@ -54,6 +55,7 @@ def gvtest2(request, graph_id=1):
 			e.source.pk, 
 			e.dest.pk, 
 			id = unicode(e.source) + '->' + unicode(e.dest),
+			tooltip = unicode(e.source) + '->' + unicode(e.dest),
 			#label=unicode(e), 
 			URL='http://www.wsj.com/%s' % e.pk)
 		graph.add_edge(g_e)
