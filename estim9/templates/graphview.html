@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<p>This graph is called {{ graph_name }}.</p>
+
+	{% if nodes %}
+		<p>It has nodes:
+			<ul>
+				{% for n in nodes %}
+				<li> {{ n }} </li>
+				{% endfor %}
+			</ul>	
+		</p> 
+	{% endif %}
+	
+	{% if edges %}
+		<p>It has edges:
+			<ul>
+				{% for e in edges %}
+				<li> {{ e }} </li>
+				{% endfor %}
+			</ul>	
+		</p> 
+	{% endif %}
+	
+	{% if svg %}
+		<p>It looks like this:</p>
+		<p>{{ svg|safe }}</p>
+	{% endif %}
+	
+{% endblock %}
