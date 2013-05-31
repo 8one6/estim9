@@ -5,13 +5,13 @@ from graph.models import Graph, Edge, Node
 
 def gvtest(request):
 	graph = pydot.Dot(graph_type='graph')
-
+	
 	numlords = 3
 	numvassalsplord = 3
 	for i in range(numlords):
 		edge = pydot.Edge("king", "lord%d" % i)
 		graph.add_edge(edge)
-
+		
 	vassal_num = 0
 	for i in range(numlords):
 		for j in range(numvassalsplord):
@@ -23,7 +23,7 @@ def gvtest(request):
 	mydict = {}
 	mydict['content'] = svg
 	return render(request, 'base.html', mydict)
-	
+
 def gvtest2(request, graph_id=1):
 	mydict = {}
 	
@@ -31,6 +31,7 @@ def gvtest2(request, graph_id=1):
 	graph = pydot.Dot(
 		graph_name=unicode(graph_qs),
 		graph_type='digraph')
+	
 	mydict['graph_name'] = graph_qs.name
 	
 	nodes_qs = Node.objects.filter(graph=graph_id)
@@ -42,8 +43,11 @@ def gvtest2(request, graph_id=1):
 			id = unicode(n),
 			tooltip = unicode(n),
 			label=unicode(n), 
+			fontname = 'Helvetica',
+			fontsize = 10,
 			URL='http://www.nytimes.com/%s' % n.pk)
 		graph.add_node(g_n)
+		
 	if nodes:
 		mydict['nodes'] = nodes
 	
@@ -67,4 +71,3 @@ def gvtest2(request, graph_id=1):
 		mydict['svg'] = svg
 	
 	return render(request, 'graphview.html', mydict)
-	
