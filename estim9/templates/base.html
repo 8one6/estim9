@@ -2,17 +2,46 @@
 {% load static from staticfiles %}
 <html lang="en">
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css href" href="{% static "css/bootstrap.css" %}" />
+		<link rel="stylesheet" type="text/css href" href="{% static "css/bootstrap-responsive.css" %}" />
 		<title>{% block title %}ESTIM9 - Estimating Evolved{% endblock %}</title>
 	</head>
 	
 	<body>
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
-				<div class="container">
-					<a class="brand" href="#"><strong>ESTIM9</strong></a>
-				</div><!--end container-->
-			</div><!--end navbar-inner-->
-		</div><!--end navbar-->
+		  	<div class="container">
+          <a class="brand" href="./index.html"><strong>ESTIM9</strong></a>
+          <div class="nav-collapse collapse">
+          	<ul class="nav">
+		        	<li class="">
+		          	<a href="#">One</a>
+							</li>
+							<li class="">
+		          	<a href="#">Two</a>
+							</li>
+							<li class="">
+		          	<a href="#">Three</a>
+							</li>
+							<li class="">
+		          	<a href="#">Four</a>
+							</li>
+		        </ul>
+					</div><!--navbar collapse-->
+				</div><!--container-->
+			</div><!--navbar inner-->
+		</div><!--navbar-->
+
+		<div class="container">
+			<div class="row">
+				{{ content|safe }}
+				{{ content|safe }}
+				{{ content|safe }}
+				{{ content|safe }}
+				{{ content|safe }}
+				{{ content|safe }}
+			</div><!--end row-->
+		</div><!--end container-->
 	</body>
 </html>
