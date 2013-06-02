@@ -4,6 +4,11 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css href" href="{% static "css/bootstrap.css" %}" />
+		<style>
+			body {
+				padding-top: 60px;
+			}
+		</style>
 		<link rel="stylesheet" type="text/css href" href="{% static "css/bootstrap-responsive.css" %}" />
 		<title>{% block title %}ESTIM9 - Estimating Evolved{% endblock %}</title>
 	</head>
@@ -12,7 +17,6 @@
 		<div class="navbar navbar-inverse navbar-fixed-top">
 			<div class="navbar-inner">
 		  	<div class="container">
-          <a class="brand" href="./index.html"><strong>ESTIM9</strong></a>
           <div class="nav-collapse collapse">
           	<ul class="nav">
 		        	<li class="">
@@ -28,23 +32,19 @@
 		          	<a href="#">Four</a>
 							</li>
 		        </ul>
+						<div class="pull-right">
+									<ul class="nav">
+										<li><a href="#">Login</a></li>
+									</ul>
+							<a class="brand" href="./index.html"><strong>ESTIM9</strong></a>
+						</div>
 					</div><!--navbar collapse-->
 				</div><!--container-->
 			</div><!--navbar inner-->
 		</div><!--navbar-->
 
-		<div class="container">
-			{% block content %}
-				<div class="hero-unit">
-					<h1>Welcome to ESTIM9</h1>
-					<p>ESTIM9 is an integrated pre-production tool for custom fabrication work.  Design a process, determine input requirements, manage supplier quotes, plan execution and more, all in one easy-to-use webapp!</p>
-					<p>
-						<a class="btn btn-primary btn-large" href="/learn">
-							Learn more
-						</a>
-					</p>
-				</div><!--hero-unit-->
-			{% endblock %}
-		</div><!--container-->
+
+	{% block content %}
+	{% endblock %}
 	</body>
 </html>
