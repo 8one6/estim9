@@ -18,26 +18,24 @@
 			<div class="navbar-inner">
 		  	<div class="container">
           <div class="nav-collapse collapse">
-          	<ul class="nav">
-		        	<li class="">
-		          	<a href="#">One</a>
-							</li>
-							<li class="">
-		          	<a href="#">Two</a>
-							</li>
-							<li class="">
-		          	<a href="#">Three</a>
-							</li>
-							<li class="">
-		          	<a href="#">Four</a>
-							</li>
-		        </ul>
+						{% block navbar_left %}
+						{% endblock %}
 						<div class="pull-right">
-									<ul class="nav">
-										<li><a href="#">Login</a></li>
-									</ul>
-							<a class="brand" href="./index.html"><strong>ESTIM9</strong></a>
-						</div>
+							{% block navbar_right %}
+								<ul class="nav">
+									<li>
+										{% if user.is_authenticated %}
+											<a href="/account/profile">{{ user.username }}</a>
+										{% else %}
+											<a href="/account/login">Login</a>
+										{% endif %}
+									</li>
+								</ul>
+							{% endblock %}
+							{% block brand %}
+								<a class="brand" href="/"><strong>ESTIM9</strong></a>
+							{% endblock %}
+						</div><!--pull right-->
 					</div><!--navbar collapse-->
 				</div><!--container-->
 			</div><!--navbar inner-->

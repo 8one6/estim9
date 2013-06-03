@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'estim9.views.home', name='home'),
     # url(r'^estim9/', include('estim9.foo.urls')),
 	url(r'^$', 'estim9.views.home'),
-	url(r'^hello/$', 'estim9.views.hello'),
+	url(r'^account/login/$', 'estim9.views.login'),
 	url(r'^gvtest/$', 'graph.views.gvtest'),
 	url(r'^gvtest2/$', 'graph.views.gvtest2'),
 
