@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>estim9/static/css/bootstrap.css</string>
+	<string>estim9/views.py</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,42 +21,72 @@
 	<integer>235</integer>
 	<key>metaData</key>
 	<dict>
-		<key>estim9/static/css/bootstrap.css</key>
+		<key>estim9/forms.py</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>0</integer>
+				<integer>24</integer>
 				<key>line</key>
-				<integer>225</integer>
+				<integer>0</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>192</integer>
+			<integer>0</integer>
+		</dict>
+		<key>estim9/settings.py</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>103</integer>
+			</dict>
+			<key>columnSelection</key>
+			<false/>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>99</integer>
+			<key>selectFrom</key>
+			<dict>
+				<key>column</key>
+				<integer>23</integer>
+				<key>line</key>
+				<integer>103</integer>
+			</dict>
+			<key>selectTo</key>
+			<dict>
+				<key>column</key>
+				<integer>27</integer>
+				<key>line</key>
+				<integer>103</integer>
+			</dict>
+		</dict>
+		<key>estim9/templates/account/login.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>18</integer>
+				<key>line</key>
+				<integer>17</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
 		</dict>
 		<key>estim9/templates/base.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>31</integer>
-				<key>line</key>
-				<integer>36</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>estim9/templates/blank.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
 				<integer>15</integer>
 				<key>line</key>
-				<integer>5</integer>
+				<integer>44</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -68,23 +98,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>5</integer>
+				<integer>14</integer>
 				<key>line</key>
-				<integer>6</integer>
+				<integer>3</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>estim9/urls.py</key>
+		<key>estim9/templates/home.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>145</integer>
 				<key>line</key>
-				<integer>11</integer>
+				<integer>9</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -96,37 +126,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>39</integer>
+				<integer>34</integer>
 				<key>line</key>
-				<integer>6</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>graph/models.py</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
 				<integer>1</integer>
-				<key>line</key>
-				<integer>32</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>graph/views.py</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>2</integer>
-				<key>line</key>
-				<integer>11</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -137,13 +139,12 @@
 	<key>openDocuments</key>
 	<array>
 		<string>estim9/templates/base.html</string>
-		<string>estim9/static/css/bootstrap.css</string>
+		<string>estim9/templates/account/login.html</string>
+		<string>estim9/forms.py</string>
+		<string>estim9/settings.py</string>
+		<string>estim9/templates/home.html</string>
 		<string>estim9/templates/graphview.html</string>
-		<string>graph/models.py</string>
-		<string>graph/views.py</string>
 		<string>estim9/views.py</string>
-		<string>estim9/templates/blank.html</string>
-		<string>estim9/urls.py</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>

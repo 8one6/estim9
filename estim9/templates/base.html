@@ -39,7 +39,10 @@
 									{% if user.is_authenticated %}
 										{% block navbar-right-extra %}
 										{% endblock %}
-										<li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">{{ user.username }}<span class="caret"></span></a>
+										<li class="dropdown">
+											<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+												{{ user.username }}<span class="caret"></span>
+											</a>
 											<ul class="dropdown-menu">
 												<li><a href="/account/"><i class="icon-cog"></i> Account</a></li>
 												<li class="divider"></li>

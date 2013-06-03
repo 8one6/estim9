@@ -11,11 +11,14 @@
 		<div class="row">
 			<div class="span4 offset4">
 		  	<div class="well">
-		    	<legend>Login to ESTIM9</legend>
+		    	<legend>Welcome, please log in:</legend>
 		      <form method="POST" action="" accept-charset="UTF-8">
-		      	<input class="span3" placeholder="Username" type="text" name="username">
-		        <input class="span3" placeholder="Password" type="password" name="password"> 
-		        <button class="btn-info btn" type="submit">Login</button>      
+						{% csrf_token %}
+						{% for field in login_form %}
+							{{ field }}
+						{% endfor %}
+		        <br>
+						<button class="btn-info btn" type="submit">Login</button>      
 					</form>    
 				</div>
 			</div>
