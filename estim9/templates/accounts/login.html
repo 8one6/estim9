@@ -32,6 +32,7 @@
 					{% for field in login_form %}
 						{{ field }}
 					{% endfor %}
+					<input type="hidden" name="next" value="{{next}}">
 	        <br>
 					<button class="btn-info btn" type="submit">Login</button>      
 				</form>    
