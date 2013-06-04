@@ -13,6 +13,7 @@ urlpatterns = patterns('',
 	url(r'^accounts/login/$', 'estim9.views.login_user'),
 	url(r'^accounts/logout/$', 'estim9.views.logout_user'),
 	url(r'^accounts/profile/$', 'estim9.views.profile'),
+	url(r'^graph/$', 'graph.views.graphs_all'),
 	url(r'^gvtest/$', 'graph.views.gvtest'),
 	url(r'^gvtest2/$', 'graph.views.gvtest2'),
 

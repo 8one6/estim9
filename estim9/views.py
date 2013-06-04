@@ -7,8 +7,11 @@ from estim9.forms import LoginForm
 def home(request):
 	return render(request, 'home.html')
 
+
+@login_required
 def profile(request):
 	return render(request, 'accounts/profile.html')
+
 
 def login_user(request):
 	d = {}
@@ -27,7 +30,7 @@ def login_user(request):
 			if user is not None:
 				if user.is_active: #all good, log user in
 					login(request, user)
-					return HttpResponseRedirect(request.POST.get('next', None))
+					return HttpResponseRedirect(request.POST.get('next'))
 				else: #account disabled
 					return HttpResponseRedirect('/accounts/disabled')
 			else: #authenticate failed
@@ -39,6 +42,7 @@ def login_user(request):
 			return render(request, 'accounts/login.html', d)
 	else:  #display empty form
 		return render(request, 'accounts/login.html', d)
+
 
 @login_required
 def logout_user(request):

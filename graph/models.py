@@ -8,6 +8,16 @@ class Graph(models.Model):
 	
 	def __unicode__(self):
 		return self.name
+	def node_count(self):
+		return self.node_set.count()
+	def edge_count(self):
+		return self.edge_set.count()
+	def isolated_nodes(self):
+		ns = self.node_set.all()
+		ins = [n for n in ns if n.is_isolated()]
+		return ins
+	def isolated_nodes_count(self):
+		return len(self.isolated_nodes())
 
 class Node(models.Model):
 	name			= models.CharField(max_length=200)
@@ -18,6 +28,12 @@ class Node(models.Model):
 	
 	def __unicode__(self):
 		return self.name
+	
+	def is_isolated(self):
+		has_as_source = self.edge_source.count()
+		has_as_dest = self.edge_dest.count()
+		return not bool(has_as_source or has_as_dest)
+	is_isolated.boolean = True
 
 class Edge(models.Model):
 	name			= models.CharField(max_length=200, blank=True)

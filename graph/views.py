@@ -1,8 +1,16 @@
 # Create your views here.
 import pydot
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
 from graph.models import Graph, Edge, Node
 
+@login_required
+def graphs_all(request):
+	g = Graph.objects.all()	
+	return render(request, 'graph/graph_index.html', {'graphs':g})
+
+
+@login_required
 def gvtest(request):
 	graph = pydot.Dot(graph_type='graph')
 	
@@ -24,6 +32,8 @@ def gvtest(request):
 	mydict['content'] = svg
 	return render(request, 'base.html', mydict)
 
+
+@login_required
 def gvtest2(request, graph_id=1):
 	mydict = {}
 	

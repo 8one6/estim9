@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+	ESTIM9 - Graphs
+{% endblock %}
+
+{% block content %}
+	<div class="page-header">
+		<h1>Graphs <small>(all graphs)</small></h1>
+	</div><!--page-header-->
+	<div class="row">
+		<div class="span12">
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Description</th>
+						<th>Node count</th>
+						<th>Edge count</th>
+						<th>Isolated nodes</th>
+					</tr>
+				</thead>
+				{% for graph in graphs %}
+					<tr>
+						<td>{{ forloop.counter }}</td>
+						<td><a href="/graph/{{graph.id}}/">{{graph}}</a></td>
+						<td>{{graph.description}}</td>
+						<td>{{graph.node_count}}</td>
+						<td>{{graph.edge_count}}</td>
+						<td>{{graph.isolated_nodes_count}}</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div><!--span12-->
+	</div><!--row-->
+{% endblock %}
