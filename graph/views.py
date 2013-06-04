@@ -11,40 +11,17 @@ def graphs_all(request):
 
 
 @login_required
-def gvtest(request):
-	graph = pydot.Dot(graph_type='graph')
-	
-	numlords = 3
-	numvassalsplord = 3
-	for i in range(numlords):
-		edge = pydot.Edge("king", "lord%d" % i)
-		graph.add_edge(edge)
-		
-	vassal_num = 0
-	for i in range(numlords):
-		for j in range(numvassalsplord):
-			edge = pydot.Edge("lord%d" % i, "vassal%d" % vassal_num)
-			graph.add_edge(edge)
-			vassal_num+=1
-	
-	svg = graph.create_svg()
-	mydict = {}
-	mydict['content'] = svg
-	return render(request, 'base.html', mydict)
-
-
-@login_required
-def gvtest2(request, graph_id=1):
+def graph_by_id(request, g_id):
 	mydict = {}
 	
-	graph_qs = Graph.objects.get(pk=graph_id)
+	g = Graph.objects.get(pk=g_id)
 	graph = pydot.Dot(
-		graph_name=unicode(graph_qs),
+		graph_name=unicode(g),
 		graph_type='digraph')
 	
-	mydict['graph_name'] = graph_qs.name
+	mydict['graph_name'] = g.name
 	
-	nodes_qs = Node.objects.filter(graph=graph_id)
+	nodes_qs = g.node_set.all()
 	nodes = []
 	for n in nodes_qs:
 		nodes.append(unicode(n))
@@ -61,7 +38,7 @@ def gvtest2(request, graph_id=1):
 	if nodes:
 		mydict['nodes'] = nodes
 	
-	edges_qs = Edge.objects.filter(graph=graph_id)
+	edges_qs = g.edge_set.all()
 	edges = []
 	for e in edges_qs:
 		edges.append(unicode(e))

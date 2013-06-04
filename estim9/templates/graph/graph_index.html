@@ -24,7 +24,7 @@
 					<tr>
 						<td>{{ forloop.counter }}</td>
 						<td><a href="/graph/{{graph.id}}/">{{graph}}</a></td>
-						<td>{{graph.description}}</td>
+						<td>{{graph.description|truncatewords:10}}</td>
 						<td>{{graph.node_count}}</td>
 						<td>{{graph.edge_count}}</td>
 						<td>{{graph.isolated_nodes_count}}</td>

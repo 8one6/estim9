@@ -14,6 +14,7 @@ urlpatterns = patterns('',
 	url(r'^accounts/logout/$', 'estim9.views.logout_user'),
 	url(r'^accounts/profile/$', 'estim9.views.profile'),
 	url(r'^graph/$', 'graph.views.graphs_all'),
+	url(r'^graph/(?P<g_id>\d+)/$', 'graph.views.graph_by_id'),
 	url(r'^gvtest/$', 'graph.views.gvtest'),
 	url(r'^gvtest2/$', 'graph.views.gvtest2'),
 
