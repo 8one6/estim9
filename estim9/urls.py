@@ -15,8 +15,6 @@ urlpatterns = patterns('',
 	url(r'^accounts/profile/$', 'estim9.views.profile'),
 	url(r'^graph/$', 'graph.views.graphs_all'),
 	url(r'^graph/(?P<g_id>\d+)/$', 'graph.views.graph_by_id'),
-	url(r'^gvtest/$', 'graph.views.gvtest'),
-	url(r'^gvtest2/$', 'graph.views.gvtest2'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
