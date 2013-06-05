@@ -18,7 +18,7 @@ def graph_by_id(request, g_id):
 	try:
 		g = Graph.objects.get(pk=g_id)
 	except Graph.DoesNotExist:
-		messages.error(request, 'There is no graph with ID %s.' % g_id )
+		messages.error(request, '<b>ERROR:</b> You requested a graph that does not exist!')
 		return HttpResponseRedirect('/graph')
 
 	graph = pydot.Dot(
