@@ -1,7 +1,9 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.shortcuts import render
+import random
 from estim9.forms import LoginForm
 	
 def home(request):
@@ -48,3 +50,12 @@ def login_user(request):
 def logout_user(request):
 	logout(request)
 	return HttpResponseRedirect('/')
+
+
+@login_required
+def test_view(request):
+	for i in range(1,5):
+		if random.random() > 0.5:
+			messages.info(request, 'Error, dude!')
+			
+	return render(request, 'test.html')

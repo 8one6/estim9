@@ -1,20 +1,26 @@
 # Create your views here.
 import pydot
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from graph.models import Graph, Edge, Node
 
 @login_required
-def graphs_all(request):
+def graphs_all(request, flash=[]):
 	g = Graph.objects.all()	
-	return render(request, 'graph/graph_index.html', {'graphs':g})
+	return render(request, 'graph/graph_index.html', { 'graphs':g, 'flash':flash })
 
 
 @login_required
 def graph_by_id(request, g_id):
 	mydict = {}
 	
-	g = Graph.objects.get(pk=g_id)
+	try:
+		g = Graph.objects.get(pk=g_id)
+	except Graph.DoesNotExist:
+		messages.error(request, 'There is no graph with ID %s.' % g_id )
+		return HttpResponseRedirect('/graph')
+
 	graph = pydot.Dot(
 		graph_name=unicode(g),
 		graph_type='digraph')
@@ -56,5 +62,10 @@ def graph_by_id(request, g_id):
 	svg = graph.create_svg()
 	if (nodes or edges):
 		mydict['svg'] = svg
-	
-	return render(request, 'graphview.html', mydict)
+
+	return render(request, 'graph/graph_by_id.html', mydict)
+
+
+@login_required
+def graph_nodes_all(request, g_id):
+	pass

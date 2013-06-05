@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+ESTIM9 - Graph - {{ graph_name}}
+{% endblock %}
+
+{% block content %}
+	<div class="page-header">
+		<h3>{{ graph_name }} <small>(graph summary)</small></h3>
+	</div><!--page-header-->
+	<div class="row">
+		<div class="span6">
+			{% if nodes %}
+				<p>It has nodes:
+					<ul>
+						{% for n in nodes %}
+							<li> {{ n }} </li>
+						{% endfor %}
+					</ul>	
+				</p> 
+			{% endif %}
+		</div><!--span6-->
+		<div class="span6">
+			{% if edges %}
+				<p>It has edges:
+					<ul>
+						{% for e in edges %}
+							<li> {{ e }} </li>
+						{% endfor %}
+					</ul>	
+				</p> 
+			{% endif %}
+		</div><!--span6 offset6-->
+	</div><!--row-->
+	<hr>
+	<div class="row">
+		<div class="span12">
+			{% if svg %}
+				<p>It looks like this:</p>
+				<p>{{ svg|safe }}</p>
+			{% endif %}
+		</div><!--span12-->
+	</div><!--row-->
+{% endblock %}

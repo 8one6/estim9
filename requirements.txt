@@ -1,0 +1,7 @@
+Django==1.5.1
+South==0.8.1
+gunicorn==0.17.4
+psycopg2==2.5
+pydot==1.0.28
+pyparsing==1.5.7
+wsgiref==0.1.2

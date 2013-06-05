@@ -1,6 +1,7 @@
 # Django settings for estim9 project.
 import os
 import django
+from django.contrib.messages import constants as message_constants
 
 DJANGO_ROOT = os.path.dirname(os.path.realpath(django.__file__))
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
@@ -107,6 +108,13 @@ MIDDLEWARE_CLASSES = (
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+MESSAGE_TAGS = {
+	message_constants.DEBUG: 'alert alert-info',
+	message_constants.INFO: 'alert alert-info',
+	message_constants.SUCCESS: 'alert alert-success',
+	message_constants.WARNING: 'alert alert-warning',
+	message_constants.ERROR: 'alert alert-error'}
 
 ROOT_URLCONF = 'estim9.urls'
 

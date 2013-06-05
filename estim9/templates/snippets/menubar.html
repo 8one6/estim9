@@ -1,0 +1,43 @@
+<div class="navbar navbar-inverse nav navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			{% block brand %}
+				<a class="brand" href="/">ESTIM9</a>
+			{% endblock %}
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li class="divider-vertical"></li>
+					{% block navbar-left-extra %}
+					{% endblock %}
+				</ul>
+				<div class="pull-right">
+					<ul class="nav pull-right">
+						{% block navbar-right %}
+							{% if user.is_authenticated %}
+								{% block navbar-right-extra %}
+								{% endblock %}
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="#" data-toggle="dropdown">
+									{{ user.username }} <span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a href="/accounts/profile"> <i class="icon-cog"></i>Account</a></li>
+										<li class="divider"></li>
+										<li><a href="/accounts/logout/"><i class="icon-off"></i> Logout</a></li>
+									</ul><!--dropdown contents-->
+								</li><!--cover for dropdown-->
+							{% else %}
+								<li><a href="/accounts/login">Login</a></li>
+							{% endif %}
+						{% endblock %}
+					</ul><!--right side stuff-->
+				</div><!--pull-right-->
+			</div><!--nav-collapse-->
+		</div><!--container-->
+	</div><!--navbar-inner-->
+</div><!--navbar-->
