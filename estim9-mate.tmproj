@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>estim9/templates/base.html</string>
+	<string>estim9/templates/snippets/messages.html</string>
 	<key>documents</key>
 	<array>
 		<dict>
