@@ -1,10 +1,10 @@
 from django.db import models
 
 class Graph(models.Model):
-	name			= models.CharField(max_length=200)
-	description 	= models.TextField(blank=True)
-	created			= models.DateField(auto_now_add=True)
-	updated			= models.DateField(auto_now=True)
+	name						= models.CharField(max_length=200)
+	description 		= models.TextField(blank=True)
+	created					= models.DateField(auto_now_add=True)
+	updated					= models.DateField(auto_now=True)
 	
 	def __unicode__(self):
 		return self.name
@@ -20,11 +20,11 @@ class Graph(models.Model):
 		return len(self.isolated_nodes())
 
 class Node(models.Model):
-	name			= models.CharField(max_length=200)
-	description		= models.TextField(blank=True)
-	graph			= models.ForeignKey('Graph')
-	created			= models.DateField(auto_now_add=True)
-	updated			= models.DateField(auto_now=True)
+	name						= models.CharField(max_length=200)
+	description			= models.TextField(blank=True)
+	graph						= models.ForeignKey('Graph')
+	created					= models.DateField(auto_now_add=True)
+	updated					= models.DateField(auto_now=True)
 	
 	def __unicode__(self):
 		return self.name
@@ -36,13 +36,13 @@ class Node(models.Model):
 	is_isolated.boolean = True
 
 class Edge(models.Model):
-	name			= models.CharField(max_length=200, blank=True)
-	description		= models.TextField(blank=True)
-	graph			= models.ForeignKey('Graph')
-	source			= models.ForeignKey('Node', related_name='edge_source')
-	dest			= models.ForeignKey('Node', related_name='edge_dest')
-	created			= models.DateField(auto_now_add=True)
-	updated			= models.DateField(auto_now=True)
+	name						= models.CharField(max_length=200, blank=True)
+	description			= models.TextField(blank=True)
+	graph						= models.ForeignKey('Graph')
+	source					= models.ForeignKey('Node', related_name='edge_source')
+	dest						= models.ForeignKey('Node', related_name='edge_dest')
+	created					= models.DateField(auto_now_add=True)
+	updated					= models.DateField(auto_now=True)
 	
 	class Meta:
 		unique_together = (('source', 'dest',),)
@@ -52,3 +52,12 @@ class Edge(models.Model):
 			return u'%s: %s->%s' % (self.name, self.source, self.dest)
 		else:
 			return u'%s->%s' % (self.source, self.dest)
+
+	def clean(self):
+		from django.core.exceptions import ValidationError
+		if (self.graph != self.source.graph):
+			raise ValidationError('Edge must be in same graph as source node.')
+		if (self.graph != self.dest.graph):
+			raise ValidationError('Edge must be in same graph as destination node.')
+		if (self.source.graph != self.dest.graph):
+			raise ValidationError('Source and destination nodes must be in the same graph.')
