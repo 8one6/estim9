@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.shortcuts import render
 import random
 from estim9.forms import LoginForm
+from estim9.utils import messages_from_form
 	
 def home(request):
 	return render(request, 'home.html')
@@ -13,7 +14,7 @@ def home(request):
 @login_required
 def profile(request):
 	return render(request, 'accounts/profile.html')
-
+	
 
 def login_user(request):
 	d = {}
@@ -36,11 +37,10 @@ def login_user(request):
 				else: #account disabled
 					return HttpResponseRedirect('/accounts/disabled')
 			else: #authenticate failed
-				errorlist = []
-				errorlist.append(u'Login failed, please try again.')
-				d['errors'] = errorlist
+				messages.error(request, '<b>Error:</b> Login failed, please try again.')
 				return render(request, 'accounts/login.html', d)
 		else: #invalid form
+			messages_from_form(request, form)
 			return render(request, 'accounts/login.html', d)
 	else:  #display empty form
 		return render(request, 'accounts/login.html', d)

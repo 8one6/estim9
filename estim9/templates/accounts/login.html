@@ -11,22 +11,6 @@
 		<div class="span4 offset4">
 	  	<div class="well">
 	    	<legend>Login:</legend>
-				{% if login_form.errors %}
-					<ul class="text-error">
-						{% for field in login_form %}
-							{% for error in field.errors %}
-								<li>{{ field.name|capfirst }}: {{ error }}</li>
-							{% endfor %}
-						{% endfor %}
-					</ul>
-				{% endif %}
-				{% if errors %}
-					<ul class="text-error">
-						{% for error in errors %}
-							<li>{{ error }}</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
 	      <form method="POST" action="" accept-charset="UTF-8">
 					{% csrf_token %}
 					{% for field in login_form %}
