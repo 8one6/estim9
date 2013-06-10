@@ -6,9 +6,13 @@ from django.contrib import messages
 from graph.models import Graph, Edge, Node
 
 @login_required
-def graphs_all(request, flash=[]):
+def graphs_all(request):
 	g = Graph.objects.all()	
-	return render(request, 'graph/graph_index.html', { 'graphs':g, 'flash':flash })
+	return render(request, 'graph/graph_index.html',
+		{
+			'graphs':g,
+			'breadcrumbs': [['Home','/'], ['Graphs']]
+		})
 
 
 @login_required
@@ -62,6 +66,8 @@ def graph_by_id(request, g_id):
 	svg = graph.create_svg()
 	if (nodes or edges):
 		mydict['svg'] = svg
+		
+	mydict['breadcrumbs'] = [['Home','/'], ['Graphs','/graph'], [unicode(g)]]
 
 	return render(request, 'graph/graph_by_id.html', mydict)
 
