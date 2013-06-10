@@ -57,5 +57,6 @@ def test_view(request):
 	for i in range(1,5):
 		if random.random() > 0.5:
 			messages.info(request, 'Error, dude!')
+	breadcrumbs = [['Home', '/'], ['Away']]
 			
-	return render(request, 'test.html')
+	return render(request, 'test.html', {'breadcrumbs':breadcrumbs})
